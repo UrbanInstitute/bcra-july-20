@@ -7,6 +7,15 @@ path:hover {
 	pointer-events: all;
 }
 
+path.disabled {
+  fill: #d2d2d2;
+}
+path.diabled:hover {
+  fill: #d2d2d2;
+  pointer-events: all;
+}
+
+
 select:focus{ outline: none; }
 select {
   background-color: #f8f8f8;

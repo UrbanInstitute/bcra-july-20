@@ -18,7 +18,7 @@ function drawMap(container_width) {
 	    for (var i = 0; i < data.length; i++) {
 	      var dataState = data[i].state;
 	      var dataAbbr = data[i].abbr;
-	      var dataLink = data[i].link;
+	      var dataLink = (data[i].link == "") ? false : data[i].link;
 
 	      for (var j = 0; j < json.features.length; j++)  {
 	        var jsonState = json.features[j].properties.name;
@@ -66,13 +66,19 @@ function drawMap(container_width) {
     	.enter()
     	.append("svg:a")    
       .attr("xlink:href", function(d) {
+          if(d.properties.link != false){
+            return d.properties.link
+          }else{
+            return null;
+          }
         	return d.properties.link
       })
       .attr('target','_blank')
     	.append("path")
     	.attr("d", path)
     	.attr("class", function(d) {
-    		return "state " + d.properties.abbr;
+        var disabled = (d.properties.link != false) ? "" : " disabled"
+    		return "state " + d.properties.abbr + disabled;
     	})
     	.style("stroke", "#fff")
     	.style("stroke-width", "1")
@@ -155,7 +161,6 @@ function drawMap(container_width) {
 
     d3.selectAll(".state")
     	.on("mouseover", function (d) {
-          console.log(d.properties.prop1.prop2, d.properties.prop1.prop3)
                dispatch.call("hoverState", this, (d3.select(this).attr('class')))
             })
     	.on("mouseout", function (d) {
@@ -194,7 +199,7 @@ function drawMap(container_width) {
          // .attr("onChange", "window.location.href=this.value")
           .attr("onChange", "window.open(this.value, '_blank') ")
           .selectAll("option")
-          .data(json.features)
+          .data(json.features.filter(function(d){ return d.properties.link != false}))
           .enter()
           .append("option")
           .text(function(d) {return d.properties.name})
