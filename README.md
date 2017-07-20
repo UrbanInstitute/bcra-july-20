@@ -1,0 +1,1 @@
+Manual "fork" of [https://github.com/UI-Research/ACA-fact-sheets-map](https://github.com/UI-Research/ACA-fact-sheets-map). Not actual gh fork, just copy of file structure. Only update is linked urls in `states-data.csv`, plus greying out of states w/ no data
