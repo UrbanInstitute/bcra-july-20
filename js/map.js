@@ -66,7 +66,7 @@ function drawMap(container_width) {
     	.enter()
     	.append("svg:a")    
       .attr("xlink:href", function(d) {
-          if(d.properties.link != false){
+          if(d.properties.link != false){ console.log(d.properties.abbr + " " + d.properties.link);
             return d.properties.link
           }else{
             return null;
@@ -77,7 +77,7 @@ function drawMap(container_width) {
     	.append("path")
     	.attr("d", path)
     	.attr("class", function(d) {
-        var disabled = (d.properties.link != false) ? "" : " disabled"
+        var disabled = (d.properties.link != false) ? "" : " disabled" ; console.log("state " + d.properties.abbr + disabled);
     		return "state " + d.properties.abbr + disabled;
     	})
     	.style("stroke", "#fff")
