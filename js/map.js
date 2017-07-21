@@ -65,7 +65,7 @@ function drawMap(container_width) {
     	.data(json.features)
     	.enter()
     	.append("svg:a")    
-      .attr("xlink:href", function(d) { 
+      .attr("xlink:href", function(d) { console.log(d.properties.abbr + " " + d.properties.link)
           if(d.properties.link != false){ 
             return d.properties.link
           }else{
@@ -109,7 +109,7 @@ function drawMap(container_width) {
       .attr("stroke-width", 1.2)
       .attr("stroke", "#ec008b")
     var dcText = svg.append("a")
-      .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-of-columbia-residents-under-aca-and-revised-bcra")
+      .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-columbia-residents-under-aca-and-revised-bcra")
       .attr('target','_blank')
       .data(dcData)
       .append("text")
@@ -128,7 +128,7 @@ function drawMap(container_width) {
         })
       .attr("class", "state-label state")    
     var dcText2= svg.append("a")
-      .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-of-columbia-residents-under-aca-and-revised-bcra")
+      .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-columbia-residents-under-aca-and-revised-bcra")
       .attr('target','_blank')
       .data(dcData)
       .append("text")
