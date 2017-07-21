@@ -12,7 +12,7 @@ http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922 */
 
 function drawMap(container_width) {
 
-	d3.csv("states-data.csv", function(data) {
+	d3.csv("states-data_old.csv", function(data) {
 
 	  d3.json("us-states.json", function(json) {
 	    for (var i = 0; i < data.length; i++) {
@@ -89,57 +89,57 @@ function drawMap(container_width) {
 
 /********* UNCOMMMENT ME FOR DC ********************/
 
-    // var dcLine1 = svg.append("line")
-    //   .attr("x1", .764*(width))
-    //   .attr("y1", .238*(width))
-    //   .attr("x2", .835*(width))
-    //   .attr("y2", .238*(width))
-    //   .attr("stroke-width", 1.2)
-    //   .attr("stroke", "#ec008b")
-    // var dcLine2 = svg.append("line")
-    //   .attr("x1", .835*(width))
-    //   .attr("y1", .238*(width))
-    //   .attr("x2", .835*(width))
-    //   .attr("y2", function() {
-    //     if (IS_PHONE){
-    //       return .26*(width)
-    //   } else { 
-    //     return .22*(width)}
-    //   })
-    //   .attr("stroke-width", 1.2)
-    //   .attr("stroke", "#ec008b")
-    // var dcText = svg.append("a")
-    //   .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-of-columbia-residents-under-aca-and-revised-bcra")
-    //   .attr('target','_blank')
-    //   .data(dcData)
-    //   .append("text")
-    //   .text(function(d) { 
-    //   if (IS_PHONE) {
-    //     return "District of";
-    //   } else {
-    //     return d.properties.name; }
-    //   })
-    //   .attr("x", .8*(width))
-    //   .attr("y", function() { 
-    //     if (IS_PHONE) {
-    //       return .28*(width)
-    //     } else { 
-    //       return .215*(width)}
-    //     })
-    //   .attr("class", "state-label state")    
-    // var dcText2= svg.append("a")
-    //   .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-of-columbia-residents-under-aca-and-revised-bcra")
-    //   .attr('target','_blank')
-    //   .data(dcData)
-    //   .append("text")
-    //   .text(function(d) { 
-    //     if (IS_PHONE) {
-    //       return "Columbia"}
-    //       else {return ""}
-    //     })
-    //   .attr("x", .8*(width))
-    //   .attr("y", .303*(width))
-    //   .attr("class", "state-label state")    
+    var dcLine1 = svg.append("line")
+      .attr("x1", .764*(width))
+      .attr("y1", .238*(width))
+      .attr("x2", .835*(width))
+      .attr("y2", .238*(width))
+      .attr("stroke-width", 1.2)
+      .attr("stroke", "#ec008b")
+    var dcLine2 = svg.append("line")
+      .attr("x1", .835*(width))
+      .attr("y1", .238*(width))
+      .attr("x2", .835*(width))
+      .attr("y2", function() {
+        if (IS_PHONE){
+          return .26*(width)
+      } else { 
+        return .22*(width)}
+      })
+      .attr("stroke-width", 1.2)
+      .attr("stroke", "#ec008b")
+    var dcText = svg.append("a")
+      .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-of-columbia-residents-under-aca-and-revised-bcra")
+      .attr('target','_blank')
+      .data(dcData)
+      .append("text")
+      .text(function(d) { 
+      if (IS_PHONE) {
+        return "District of";
+      } else {
+        return d.properties.name; }
+      })
+      .attr("x", .8*(width))
+      .attr("y", function() { 
+        if (IS_PHONE) {
+          return .28*(width)
+        } else { 
+          return .215*(width)}
+        })
+      .attr("class", "state-label state")    
+    var dcText2= svg.append("a")
+      .attr("xlink:href", "http://www.urban.org/research/publication/potential-health-care-financial-burden-district-of-columbia-residents-under-aca-and-revised-bcra")
+      .attr('target','_blank')
+      .data(dcData)
+      .append("text")
+      .text(function(d) { 
+        if (IS_PHONE) {
+          return "Columbia"}
+          else {return ""}
+        })
+      .attr("x", .8*(width))
+      .attr("y", .303*(width))
+      .attr("class", "state-label state")    
 
 /********* END UNCOMMMENT ME FOR DC ********************/
 
