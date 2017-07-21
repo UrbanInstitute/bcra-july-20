@@ -7,10 +7,10 @@ path:hover {
 	pointer-events: all;
 }
 
-path.disabled {
+path.disabled{
   fill: #d2d2d2;
 }
-path.diabled:hover {
+path.diabled:hover, path.WY:hover {
   fill: #d2d2d2;
   pointer-events: all;
 }

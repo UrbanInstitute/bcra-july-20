@@ -18,10 +18,15 @@ function drawMap(container_width) {
 	    for (var i = 0; i < data.length; i++) {
 	      var dataState = data[i].state;
 	      var dataAbbr = data[i].abbr;
-	      var dataLink = (data[i].link == "") ? false : data[i].link;
+	      var dataLink = (data[i].link == "" || data[i].abbr == "WY") ? false : data[i].link;
+        if(typeof(dataLink) == "undefined"){
+          dataLink = false;
+        }
+
 
 	      for (var j = 0; j < json.features.length; j++)  {
 	        var jsonState = json.features[j].properties.name;
+
 	        if (dataState == jsonState) {
 	        // Copy the data value into the JSON
 	        json.features[j].properties.abbr = dataAbbr; 
@@ -60,7 +65,8 @@ function drawMap(container_width) {
           .append("svg")
           .attr("width", width)
           .attr("height", height);
-    // Bind the data to the SVG and create one path per GeoJSON feature
+    // Bind the data to the SVG and create one path per GeoJSON feature]
+    console.log(json.features)
     var states = svg.selectAll("path")
     	.data(json.features)
     	.enter()
@@ -77,7 +83,7 @@ function drawMap(container_width) {
     	.append("path")
     	.attr("d", path)
     	.attr("class", function(d) {
-        var disabled = (d.properties.link != false) ? "" : " disabled" 
+        var disabled = (d.properties.link != false || d.properties.abbr == "WY") ? "" : " disabled" 
     		return "state " + d.properties.abbr + disabled;
     	})
     	.style("stroke", "#fff")
