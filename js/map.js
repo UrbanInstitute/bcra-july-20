@@ -65,7 +65,7 @@ function drawMap(container_width) {
     	.data(json.features)
     	.enter()
     	.append("svg:a")    
-      .attr("xlink:href", function(d) { console.log(d.properties.abbr + " " + d.properties.link)
+      .attr("xlink:href", function(d) { 
           if(d.properties.link != false){ 
             return d.properties.link
           }else{
